@@ -1,0 +1,12 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.button {
+  padding: 10px;
+}
+
+.is-active{
+  border: thin solid darkblue;
+}
