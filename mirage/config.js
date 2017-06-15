@@ -2,14 +2,14 @@ export default function(){
 
   this.namespace = 'api';
 
-  this.get('/todos', () => {
+  this.get('/todos', (schema) => {
+    return schema.db.todos;
+  });
 
-    return [
-        {id: 1, description: "Learn Ember", status: "ACTIVE"},
-        {id: 2, description: "Grocery Shopping", status: "ACTIVE"},
-        {id: 3, description: "Clean House", status: "ACTIVE"}
-    ];
+  this.post('/todos', (schema, request) => {
+    let todo = JSON.parse(request.requestBody);
 
+    return schema.db.todos.insert(todo);
   });
 
 }
