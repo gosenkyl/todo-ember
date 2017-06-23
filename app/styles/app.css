@@ -1,3 +1,8 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+  background-color: #F5F5F5;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -11,13 +16,136 @@
   border: thin solid darkblue;
 }
 
-.circle {
-  width: 20px;
-  height: 20px;
-  border: thin solid black;
-  border-radius: 100%;
+.title {
+  color: red;
+  opacity: .3;
+  font-size: 80px;
+  font-weight: bold;
+
+  padding-bottom: 50px;
 }
 
-.filled {
-  background-color: blue;
+.filtered-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: white;
+
+  padding: 20px;
+
+  width: 50%;
+
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important
+}
+
+.create-todo {
+  width: 100%;
+
+  border-bottom: thin solid gray;
+}
+
+.create-todo input{
+  width: 100%;
+
+  font-size: 24px;
+
+  border: none;
+  padding: 20px 5px;
+}
+
+::-webkit-input-placeholder {
+  opacity: .4;
+  font-style: italic;
+}
+::-moz-placeholder {
+  opacity: .4;
+  font-style: italic;
+}
+:-ms-input-placeholder {
+  opacity: .4;
+  font-style: italic;
+}
+:-moz-placeholder {
+  opacity: .4;
+  font-style: italic;
+}
+
+.todo-container {
+  width: 100%;
+
+  padding: 40px 0;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+  width: 100%;
+
+  padding: 20px 0;
+  border-bottom: thin solid gray;
+}
+
+.checkbox {
+  width: 30px;
+  height: 30px;
+  border: thin solid black;
+  border-radius: 100%;
+
+  opacity: .3;
+}
+
+.description {
+  padding-left: 20px;
+
+  flex-grow: 3;
+}
+
+.delete {
+  font-size: 30px;
+  color: orangered;
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+
+.filter-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-filter-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+
+}
+
+.search input {
+  border: none;
+  border-bottom: thin solid lightgray;
+
+  font-size: 14px;
+
+  padding: 20px 5px;
+}
+
+.credit {
+  padding-top: 50px;
 }

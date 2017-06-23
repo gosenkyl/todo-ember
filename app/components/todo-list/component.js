@@ -3,6 +3,8 @@ import {task} from 'ember-concurrency';
 
 export default Ember.Component.extend({
 
+  classNames: ["filtered-list"],
+
   store: Ember.inject.service("store"),
 
   todos: Ember.A(),
@@ -16,7 +18,7 @@ export default Ember.Component.extend({
 
   searchText: "",
 
-  filteredTodos: Ember.computed("todos.[]", "filterStatus", "searchText", function(){
+  filteredTodos: Ember.computed("todos.[]", "todos.@each.status", "filterStatus", "searchText", function(){
     let todos = Ember.get(this, "todos");
     let filterStatus = Ember.get(this, "filterStatus");
 

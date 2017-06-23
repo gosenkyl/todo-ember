@@ -1,19 +1,31 @@
-<div>{{input type="text" value=createTodo enter="onCreateTodo"}}</div>
+<div class="title">todos</div>
 
-{{#each filteredTodos as |todo|}}
-  <div class="flex-row">
-      <div class="circle {{if (eq todo.status "COMPLETED") "filled"}}" {{action "onUpdateStatus" todo}}></div>
-      <div>{{todo.description}}</div> - <div>{{todo.status}}</div>
-      <div class="button" {{action "onDelete" todo}}>delete</div>
+<div class="content">
+  <div class="create-todo">
+    {{input type="text" value=createTodo enter="onCreateTodo" placeholder="What needs to be done?"}}
   </div>
-{{/each}}
 
-<div class="flex-row">
-    <div>{{activeCount}} item(s) left!</div>
+  <div class="todo-container">
+    {{#each filteredTodos as |todo|}}
+      <div class="todo">
+          <input type="checkbox" class="checkbox" checked={{if (eq todo.status "COMPLETED") "checked"}} onchange={{action "onUpdateStatus" todo}} />
+          <div class="description">{{todo.description}}</div>
+          <div class="delete" {{action "onDelete" todo}}>x</div>
+      </div>
+    {{/each}}
+  </div>
 
-    <div class="button {{if isFilterAll "is-active"}}" {{action "onFilter" "ALL"}}>All</div>
-    <div class="button {{if isFilterActive "is-active"}}" {{action "onFilter" "ACTIVE"}}>Active</div>
-    <div class="button {{if isFilterCompleted "is-active"}}" {{action "onFilter" "COMPLETED"}}>Completed</div>
+  <div class="filter-list">
+      <div>{{activeCount}} item(s) left!</div>
 
-    <div>{{input type="text" value=searchText placeholder="Search"}}</div>
+      <div class="status-filter-list">
+        <div class="button {{if isFilterAll "is-active"}}" {{action "onFilter" "ALL"}}>All</div>
+        <div class="button {{if isFilterActive "is-active"}}" {{action "onFilter" "ACTIVE"}}>Active</div>
+        <div class="button {{if isFilterCompleted "is-active"}}" {{action "onFilter" "COMPLETED"}}>Completed</div>
+      </div>
+
+      <div class="search">{{input type="text" value=searchText placeholder="Search"}}</div>
+  </div>
 </div>
+
+<div class="credit">Inspired by <a href="http://todomvc.com">todomvc.com</a></div>
