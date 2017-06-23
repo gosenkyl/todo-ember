@@ -10,3 +10,14 @@
 .is-active{
   border: thin solid darkblue;
 }
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border: thin solid black;
+  border-radius: 100%;
+}
+
+.filled {
+  background-color: blue;
+}

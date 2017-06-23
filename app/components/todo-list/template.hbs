@@ -2,7 +2,9 @@
 
 {{#each filteredTodos as |todo|}}
   <div class="flex-row">
+      <div class="circle {{if (eq todo.status "COMPLETED") "filled"}}" {{action "onUpdateStatus" todo}}></div>
       <div>{{todo.description}}</div> - <div>{{todo.status}}</div>
+      <div class="button" {{action "onDelete" todo}}>delete</div>
   </div>
 {{/each}}
 

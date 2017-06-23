@@ -43,6 +43,14 @@ export default Ember.Component.extend({
     Ember.set(this, "createTodo", null);
   }),
 
+  deleteData: task(function * (todo){
+    yield todo.destroyRecord();
+  }),
+
+  updateData: task(function * (todo){
+    yield todo.save();
+  }),
+
   actions: {
     onCreateTodo(){
       Ember.get(this, "postData").perform(this.get("createTodo"));
@@ -50,6 +58,19 @@ export default Ember.Component.extend({
 
     onFilter(status){
       Ember.set(this, "filterStatus", status);
+    },
+
+    onDelete(todo){
+      Ember.get(this, "deleteData").perform(todo);
+    },
+
+    onUpdateStatus(todo){
+      let currentStatus = Ember.get(todo, "status");
+      let updatedStatus = currentStatus === "ACTIVE" ? "COMPLETED" : "ACTIVE";
+
+      Ember.set(todo, "status", updatedStatus);
+
+      Ember.get(this, "updateData").perform(todo);
     }
   }
 
