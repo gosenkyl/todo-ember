@@ -9,7 +9,11 @@
 {{/each}}
 
 <div class="flex-row">
+    <div>{{activeCount}} item(s) left!</div>
+
     <div class="button {{if isFilterAll "is-active"}}" {{action "onFilter" "ALL"}}>All</div>
     <div class="button {{if isFilterActive "is-active"}}" {{action "onFilter" "ACTIVE"}}>Active</div>
     <div class="button {{if isFilterCompleted "is-active"}}" {{action "onFilter" "COMPLETED"}}>Completed</div>
+
+    <div>{{input type="text" value=searchText placeholder="Search"}}</div>
 </div>

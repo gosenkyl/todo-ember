@@ -14,15 +14,28 @@ export default Ember.Component.extend({
   isFilterActive: Ember.computed.equal("filterStatus", "ACTIVE"),
   isFilterCompleted: Ember.computed.equal("filterStatus", "COMPLETED"),
 
+  searchText: "",
+
   filteredTodos: Ember.computed("todos.[]", "todos.@each.status", "filterStatus", function(){
     let todos = Ember.get(this, "todos");
     let filterStatus = Ember.get(this, "filterStatus");
-    if("ALL" === filterStatus){
-      return todos;
+
+    let filteredTodos = "ALL" === filterStatus ? todos : todos.filterBy("status", filterStatus);
+
+    let searchText = Ember.get(this, "searchText");
+
+    if(Ember.isPresent(searchText)) {
+      searchText = searchText.toUpperCase();
+      filteredTodos = filteredTodos.filter(function (todo){
+          return Ember.get(todo, "description").toUpperCase().includes(searchText);
+      });
     }
 
-    return todos.filterBy("status", filterStatus);
+    return filteredTodos;
   }),
+
+  activeTodos: Ember.computed.filterBy("todos", "status", "ACTIVE"),
+  activeCount: Ember.computed.reads("activeTodos.length"),
 
   init(){
     this._super(...arguments);
