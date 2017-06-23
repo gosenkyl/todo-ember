@@ -16,7 +16,7 @@ export default Ember.Component.extend({
 
   searchText: "",
 
-  filteredTodos: Ember.computed("todos.[]", "todos.@each.status", "filterStatus", function(){
+  filteredTodos: Ember.computed("todos.[]", "filterStatus", "searchText", function(){
     let todos = Ember.get(this, "todos");
     let filterStatus = Ember.get(this, "filterStatus");
 
