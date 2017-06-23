@@ -14,7 +14,7 @@ export default Ember.Component.extend({
   isFilterActive: Ember.computed.equal("filterStatus", "ACTIVE"),
   isFilterCompleted: Ember.computed.equal("filterStatus", "COMPLETED"),
 
-  filteredTodos: Ember.computed("todos.[]", "filterStatus", function(){
+  filteredTodos: Ember.computed("todos.[]", "todos.@each.status", "filterStatus", function(){
     let todos = Ember.get(this, "todos");
     let filterStatus = Ember.get(this, "filterStatus");
     if("ALL" === filterStatus){
