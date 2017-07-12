@@ -20,13 +20,11 @@ If you're unfamiliar with npm, it is a package manager that makes managing depen
 
 Go to the directory you wish to create your project and run `ember new todo-ember` followed by `cd todo-ember`. The ember-cli is an amazing tool that AngularJS recently copied. It uses blueprints to generate common templated code for us.
 
-??? **TODO GIT**
-
-I have a few branches created in case we lose each other. Right now we should be in
+I have a few branches created in case we lose each other. Right now we should be in branch:
 
 ### master
 
-Execute ``ember s``, the 's' being short for serve or server. If we open a browser and go to [localhost:4200](localhost:4200), we should see the out-of-the-box ember app to let us know that everything is set up properly!
+Execute `ember s`, the 's' being short for serve or server. If we open a browser and go to [localhost:4200](localhost:4200), we should see the out-of-the-box ember app to let us know that everything is set up properly!
 
 First, let's modify `.ember-cli`. Add a new variable `"usePods": true`. This is not necessarily necessary, but a strong personal preference. This will tell the ember cli generator that we want to create all of our related files in directories by component rather than by the type of the file. Without `"usePods": true` we will end up with our Javascript in one directory, our HTML related to that Javascript in another, and our route in yet another. Because we are choosing to use pods, we can go ahead and delete the directories `controllers, models, routes and templates`, to remove any confusion later on.
 
@@ -496,8 +494,8 @@ I hope you learned and/or are enlightened to some of the stuff Ember can do. Let
 * Ember Data - Interact with the Store and create a model, adapter and serializer to easily manage the data flow
 * Ember Components - variables, functions, computeds, actions handlers, injection
 * Handlebars - Mustache syntax
+  - Helpers: Evaluate expressions
 * Ember Concurrency - Management of asynchronous calls
-	-
 
 ## What we DIDN'T cover that is very important. Second project?
 
