@@ -64,7 +64,7 @@ Change the type of serializer to DS.JSONSerializer. A serializer tells Ember how
 Change the type of adapter to DS.RESTAdapter. Add the following variables to todo/adapter.js
 
 ```javascript
-host: "http://localhost:4200"
+host: "http://localhost:4200",
 namespace: "api"
 ```
 
