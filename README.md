@@ -129,6 +129,8 @@ export default Ember.Component.extend({
 
 There's a lot going on here. First of all, we're injecting a service called "store". Store is a service that Ember has created to expose the underlying ember-data store object that maintains our models. It includes functions that allow us to retrieve, save and delete data. An important thing to remember about services is they are singletons, there is only one instance of a given service. Next, we initialize a variable called "todos" to Ember's wrapper of a Javascript array that gives us a few nice helper functions. fetchData is a task that fetches todos from the store (asynchronously!) and sets the result to our todos variable. We invoke the fetching of the data in the init of our component by calling perform on the task.
 
+You must call super in any of Ember's lifecycle hooks (init, didReceiveAttrs, willRender, etc., referenced at the end of the tutorial) as important functionality is happening in the parent base component class. The `...arguments` is a spread operator that passes any params passed into our init function, to the parent init function.
+
 components/todo-list/template.hbs
 ```
 {{#each todos as |todo|}}
